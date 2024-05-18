@@ -1,0 +1,11 @@
+[workspace]
+
+members = [
+        "comments",
+        "data_types",
+        "functions",
+        "guessing_game",
+        "hello_cargo",
+        "hello_world",
+        "variables",
+]
