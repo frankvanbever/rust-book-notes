@@ -1,7 +1,7 @@
 [workspace]
 
 members = [
-        "comments",
+        "comments", "control_flow",
         "data_types",
         "functions",
         "guessing_game",
