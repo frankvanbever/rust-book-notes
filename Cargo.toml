@@ -9,3 +9,5 @@ members = [
         "hello_world",
         "variables",
 ]
+
+resolver = "2"
