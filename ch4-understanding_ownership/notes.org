@@ -1,0 +1,56 @@
+#+title: Notes on "Understanding Ownership" in The Rust Programming Language
+
+Rust can make memory safety guarantees without needing a garbage collector.
+
+It does this through the concept of /Ownership/. If the source code violates this
+rule the compiler will not allow the code to compile.
+
+There are a couple of fundamental rules:
+
+- Each value has an /owner/
+- There can be only one owner at a time
+- When the owner goes out of scope the value will be dropped
+
+*  Shallow Copy vs. Move
+There's a difference between the concept of a shallow copy and what Rust does,
+which is a "move" operation
+
+#+begin_src rust
+fn interacting_with_move() {
+    let x = 5;
+    let _y = x;
+
+    let s1 = String::from("hello");
+    let _s2 = s1;
+
+    println!("{s1}, world"); //This is not allowed because s1 was moved to s2
+    // i.e. the reference was invalidated
+}
+#+end_src
+
+In the case above s1 was moved into s2, invalidating s1. After this move s1 can
+no longer be used.
+
+This has some implications:
+- Rust will never create a "deep" copy of your data.
+- Automatic copying can always be assumed to be cheap
+
+* Copy trait
+
+Rust has a special annotation called the ~Copy~ trait that causes it to be trivially copied rather than moved.
+
+Applying this trait is disallowed if it has the drop trait implemented.
+This generally means that
+
+I'm actually not sure what a trait is in this case. It's talked about more in chapter 10.
+
+If I look up the definition on Google it says:
+
+#+begin_quote
+A trait is a collection of methods defined for an unknown type: Self
+#+end_quote
+
+This seems to be Rust's mechanism for doing interfaces.
+
+
+* Ownership and functions

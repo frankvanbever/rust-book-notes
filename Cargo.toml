@@ -6,7 +6,7 @@ members = [
         "functions",
         "guessing_game",
         "hello_cargo",
-        "hello_world",
+        "hello_world", "understanding_ownership/ownership_and_functions", "understanding_ownership/return_values_and_scope", "understanding_ownership/string_stuff",
         "variables",
 ]
 
