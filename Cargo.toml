@@ -1,13 +1,13 @@
 [workspace]
 
-members = [
+members = [ "ch4-understanding_ownership/references_and_borrowing",
         "comments", "control_flow",
         "data_types",
         "functions",
         "guessing_game",
         "hello_cargo",
-        "hello_world", "understanding_ownership/ownership_and_functions", "understanding_ownership/return_values_and_scope", "understanding_ownership/string_stuff",
-        "variables",
+        "hello_world", "ch4-understanding_ownership/ownership_and_functions", "ch4-understanding_ownership/return_values_and_scope", "ch4-understanding_ownership/string_stuff",
+        "variables", "ch4-understanding_ownership/ls",
 ]
 
 resolver = "2"
