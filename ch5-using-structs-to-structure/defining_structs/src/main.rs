@@ -6,6 +6,12 @@ struct User {
     sign_in_count: u64,
 }
 
+// Tuple structs
+// - Don't have names associated with their fields
+
+struct Color(i32, i32, i32);
+struct Point(i32, i32, i32);
+
 fn main() {
     let user1 = build_user(
         String::from("user@example.com"),
@@ -27,6 +33,11 @@ fn main() {
     };
 
     print_user(&user2);
+
+    let black = Color(0,0,0);
+    print_color(&black);
+    let origin = Point(0,0,0);
+    print_point(&origin);
 }
 
 fn build_user(email: String, username: String) -> User {
@@ -51,4 +62,18 @@ fn print_user(user: &User) {
     println!("    email: {mail}");
     println!("    sign-in count: {count}");
 
+}
+
+fn print_color(color: &Color) {
+    let r = color.0;
+    let g = color.1;
+    let b = color.2;
+    println!("color is {r},{g},{b}");
+}
+
+fn print_point(point: &Point) {
+    let r = point.0;
+    let g = point.1;
+    let b = point.2;
+    println!("point is {r},{g},{b}");
 }
