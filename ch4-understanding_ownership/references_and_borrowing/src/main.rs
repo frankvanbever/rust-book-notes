@@ -7,6 +7,8 @@ fn main() {
     scope_and_references();
     // combining_mutable_and_immutable();
     // dangling_references();
+    let foo = no_dangle();
+    println!("{foo}");
 }
 
 fn reference_borrowing() {
@@ -93,3 +95,9 @@ fn scope_and_references() {
 
 //     &s
 // }
+
+fn no_dangle() -> String {
+    let s = String::from("hello");
+
+    s
+}

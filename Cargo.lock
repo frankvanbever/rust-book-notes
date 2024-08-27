@@ -21,6 +21,10 @@ name = "data_types"
 version = "0.1.0"
 
 [[package]]
+name = "defining_structs"
+version = "0.1.0"
+
+[[package]]
 name = "functions"
 version = "0.1.0"
 
@@ -102,6 +106,10 @@ version = "0.1.0"
 
 [[package]]
 name = "return_values_and_scope"
+version = "0.1.0"
+
+[[package]]
+name = "slice-type"
 version = "0.1.0"
 
 [[package]]
