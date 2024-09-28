@@ -7,7 +7,7 @@ members = [ "ch4-understanding_ownership/references_and_borrowing",
         "guessing_game",
         "hello_cargo",
         "hello_world", "ch4-understanding_ownership/ownership_and_functions", "ch4-understanding_ownership/return_values_and_scope", "ch4-understanding_ownership/string_stuff",
-        "variables", "ch4-understanding_ownership/slice-type", "ch5-using-structs-to-structure/defining_structs",
+        "variables", "ch4-understanding_ownership/slice-type", "ch5-using-structs-to-structure/defining_structs", "ch5-using-structs-to-structure/rectangles",
 ]
 
 resolver = "2"
