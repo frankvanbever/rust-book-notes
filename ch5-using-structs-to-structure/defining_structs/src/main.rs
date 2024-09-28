@@ -12,6 +12,11 @@ struct User {
 struct Color(i32, i32, i32);
 struct Point(i32, i32, i32);
 
+// Unit-like structs
+// - Have no fields. Useful for traits. something in CH10
+
+struct AlwaysEqual;
+
 fn main() {
     let user1 = build_user(
         String::from("user@example.com"),
@@ -38,6 +43,8 @@ fn main() {
     print_color(&black);
     let origin = Point(0,0,0);
     print_point(&origin);
+
+    let _subject = AlwaysEqual;
 }
 
 fn build_user(email: String, username: String) -> User {
