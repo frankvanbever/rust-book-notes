@@ -35,6 +35,14 @@ name = "ip-addr-kind"
 version = "0.1.0"
 
 [[package]]
+name = "match-control-flow"
+version = "0.1.0"
+
+[[package]]
+name = "matching-with-option"
+version = "0.1.0"
+
+[[package]]
 name = "option-enum"
 version = "0.1.0"
 
