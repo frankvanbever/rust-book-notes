@@ -5,7 +5,7 @@ members = [ "ch4-understanding_ownership/references_and_borrowing",
 	"data_types",
 	"functions",
 	"ch4-understanding_ownership/ownership_and_functions", "ch4-understanding_ownership/return_values_and_scope", "ch4-understanding_ownership/string_stuff",
-	"variables", "ch4-understanding_ownership/slice-type", "ch5-using-structs-to-structure/defining_structs", "ch5-using-structs-to-structure/rectangles", "ch6-enums-pattern-matching/ip-addr-kind", "ch6-enums-pattern-matching/option-enum", "ch6-enums-pattern-matching/match-control-flow", "ch6-enums-pattern-matching/matching-with-option", "ch6-enums-pattern-matching/catch-all-patterns", "ch6-enums-pattern-matching/if-let-control-flow", "ch7-packages-modules-crates/backyard",
+	"variables", "ch4-understanding_ownership/slice-type", "ch5-using-structs-to-structure/defining_structs", "ch5-using-structs-to-structure/rectangles", "ch6-enums-pattern-matching/ip-addr-kind", "ch6-enums-pattern-matching/option-enum", "ch6-enums-pattern-matching/match-control-flow", "ch6-enums-pattern-matching/matching-with-option", "ch6-enums-pattern-matching/catch-all-patterns", "ch6-enums-pattern-matching/if-let-control-flow", "ch7-packages-modules-crates/backyard", "ch7-packages-modules-crates/restaurant",
 ]
 
 resolver = "2"
