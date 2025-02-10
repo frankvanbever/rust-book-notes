@@ -63,6 +63,10 @@ name = "references_and_borrowing"
 version = "0.1.0"
 
 [[package]]
+name = "restaurant"
+version = "0.1.0"
+
+[[package]]
 name = "return_values_and_scope"
 version = "0.1.0"
 
