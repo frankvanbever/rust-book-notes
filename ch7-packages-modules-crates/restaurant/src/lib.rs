@@ -46,23 +46,29 @@ mod back_of_house {
     fn cook_order() {}
 }
 
-pub fn eat_at_restaurant() {
-    // Absolute path
-    //crate::front_of_house::hosting::add_to_waitlist();
-    // Relative path
-    //front_of_house::hosting::add_to_waitlist();
 
-    // Order a breakfast in the summer with Rye toast
-    let mut meal = back_of_house::Breakfast::summer("Rye");
-    // Change our mind about what bread we'd like
-    meal.toast  = String::from("Wheat");
-    println!("I'd like {} toast please", meal.toast);
+mod customer {
+    // Use creates a "shortcut" for the particular scope
+    use crate::front_of_house::hosting;
 
-    // this line won't compile because modifyting the seasonal fruit
-    // is not allowed.
-    // meal.seasonal_fruit = String::from("blueberries");
+    pub fn eat_at_restaurant() {
+        // Absolute path
+        hosting::add_to_waitlist();
+        // Relative path
+        //front_of_house::hosting::add_to_waitlist();
 
-    // The variants of public enums are all public
-    let order1 = back_of_house::Appetizer::Soup;
-    let order2 = back_of_house::Appetizer::Salad;
+        // Order a breakfast in the summer with Rye toast
+        let mut meal = super::back_of_house::Breakfast::summer("Rye");
+        // Change our mind about what bread we'd like
+        meal.toast  = String::from("Wheat");
+        println!("I'd like {} toast please", meal.toast);
+
+        // this line won't compile because modifyting the seasonal fruit
+        // is not allowed.
+        // meal.seasonal_fruit = String::from("blueberries");
+
+        // The variants of public enums are all public
+        let order1 = super::back_of_house::Appetizer::Soup;
+        let order2 = super::back_of_house::Appetizer::Salad;
+    }
 }
