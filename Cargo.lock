@@ -31,6 +31,10 @@ name = "functions"
 version = "0.1.0"
 
 [[package]]
+name = "hashmaps"
+version = "0.1.0"
+
+[[package]]
 name = "if-let-control-flow"
 version = "0.1.0"
 
