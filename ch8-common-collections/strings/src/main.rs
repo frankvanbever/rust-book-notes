@@ -44,5 +44,19 @@ fn main() {
     //let h = s1[0];
     // Rust strings don't support indexing
 
+    let hello = "Здравствуйте";
+    // setting the slice to 0..1 crashes the application
+    let s = &hello[0..4];
+
+    println!("{s}");
+
+    for c in "Зд".chars() {
+        println!("{c}");
+    }
+
+
+    for c in "Зд".bytes() {
+        println!("{c}");
+    }
 
 }
