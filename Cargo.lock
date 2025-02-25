@@ -27,6 +27,10 @@ name = "defining_structs"
 version = "0.1.0"
 
 [[package]]
+name = "exercise1"
+version = "0.1.0"
+
+[[package]]
 name = "functions"
 version = "0.1.0"
 
