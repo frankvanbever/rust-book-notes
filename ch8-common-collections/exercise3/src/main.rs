@@ -6,7 +6,11 @@ use std::collections::HashMap;
 // Then let the user retrieve a list of all people in a department or
 // all people in the company by department sorted alphabetically.
 
-fn add_employee(departments: &mut HashMap<&str, Vec<String>>, command: String) {
+// String references for the keys need to live as long as the
+// Company hashmap
+type Company<'a> = HashMap<&'a str, Vec<String>>;
+
+fn add_employee(departments: &mut Company, command: String) {
 
     let mut tokens = Vec::new();
 
@@ -19,17 +23,24 @@ fn add_employee(departments: &mut HashMap<&str, Vec<String>>, command: String) {
 
         let name = String::from(tokens[1]);
         department.push(name);
+        department.sort(); // This is wasteful
     } else {
         println!("Malformed command");
     }
 }
 
-fn print_department(departments: &HashMap<&str, Vec<String>>, department_name: &str) {
+fn print_department(departments: &Company, department_name: &str) {
     let department = departments.get(department_name).unwrap();
 
     println!("{department_name}:");
     for name in department {
         println!("- {name}");
+    }
+}
+
+fn print_company(departments: &Company) {
+    for (department, _value) in departments {
+       print_department(departments, department);
     }
 }
 
@@ -42,9 +53,14 @@ fn main() {
     departments.insert("Engineering", engineering);
     departments.insert("Sales", sales);
 
-    add_employee(&mut departments, String::from("Add Sally to Engineering"));
-    print_department(&departments, "Engineering");
-
     add_employee(&mut departments, String::from("Add Amir to Sales"));
     print_department(&departments, "Sales");
+
+    // Check if sorting actually works
+    add_employee(&mut departments, String::from("Add Sally to Engineering"));
+    add_employee(&mut departments, String::from("Add Art to Engineering"));
+    add_employee(&mut departments, String::from("Add George to Engineering"));
+    print_department(&departments, "Engineering");
+
+    print_company(&departments);
 }
