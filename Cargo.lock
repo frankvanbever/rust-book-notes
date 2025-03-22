@@ -75,6 +75,10 @@ name = "panic-macro"
 version = "0.1.0"
 
 [[package]]
+name = "recoverable-errors"
+version = "0.1.0"
+
+[[package]]
 name = "rectangles"
 version = "0.1.0"
 
