@@ -36,6 +36,45 @@ pub trait Summary {
     }
 }
 
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}",  item.summarize());
+}
+
+fn returns_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
+}
+
+
+use std::fmt::Display;
+
+struct Pair<T> {
+    x: T,
+    y: T,
+}
+
+impl<T> Pair<T> {
+    fn new(x: T, y: T) -> self {
+        Self {x, y}
+    }
+}
+
+impl<T: Display + PartialOrd> Pair<T> {
+    fn cmp_display(&self) {
+        if self.x >= self.y {
+            println!("The largest member is x = {}", self.x);
+        } else {
+            println!("The largest member is y = {}", self.y);
+        }
+    }
+}
+
 fn main() {
     let tweet = Tweet {
         username: String::from("horse_ebooks"),
@@ -57,4 +96,8 @@ fn main() {
     };
 
     println!("New article available! {}", article.summarize());
+
+    notify(&tweet);
+
+    notify(&returns_summarizable());
 }
