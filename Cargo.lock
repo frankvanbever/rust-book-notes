@@ -119,6 +119,10 @@ name = "traits-shared-behavior"
 version = "0.1.0"
 
 [[package]]
+name = "validating-references-w-lifetimes"
+version = "0.1.0"
+
+[[package]]
 name = "variables"
 version = "0.1.0"
 
