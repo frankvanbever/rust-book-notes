@@ -3,6 +3,10 @@
 version = 3
 
 [[package]]
+name = "adder"
+version = "0.1.0"
+
+[[package]]
 name = "backyard"
 version = "0.1.0"
 
@@ -16,6 +20,10 @@ version = "0.1.0"
 
 [[package]]
 name = "control_flow"
+version = "0.1.0"
+
+[[package]]
+name = "controlling-tests"
 version = "0.1.0"
 
 [[package]]
@@ -48,6 +56,10 @@ version = "0.1.0"
 
 [[package]]
 name = "hashmaps"
+version = "0.1.0"
+
+[[package]]
+name = "how-to-write-tests"
 version = "0.1.0"
 
 [[package]]
