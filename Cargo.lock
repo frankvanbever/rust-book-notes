@@ -79,6 +79,10 @@ name = "matching-with-option"
 version = "0.1.0"
 
 [[package]]
+name = "minigrep"
+version = "0.1.0"
+
+[[package]]
 name = "option-enum"
 version = "0.1.0"
 
