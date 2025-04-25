@@ -49,4 +49,14 @@ fn main() {
         "The user with preference {:?} gets {:?}",
         user_pref2, giveaway2
     );
+
+    let add_one_v2 = |x: u32| -> u32 { x + 1 };
+
+    let result = add_one_v2(5);
+    println!("{result}");
+
+    let add_one_v4 = |x| x+1;
+
+    let result2 = add_one_v4(6);
+    println!("{result2}");
 }
