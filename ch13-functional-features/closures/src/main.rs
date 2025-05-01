@@ -1,3 +1,5 @@
+use std::thread;
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
@@ -76,4 +78,11 @@ fn main() {
 
     borrows_mutably();
     println!("After calling closure: {list2:?}");
+
+    let list3 = vec![1, 2, 3];
+    println!("Before defining closure: {list3:?}");
+
+    thread::spawn(move || println!("From thread: {list3:?}"))
+        .join()
+        .unwrap();
 }
