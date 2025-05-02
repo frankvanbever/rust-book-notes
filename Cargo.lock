@@ -75,6 +75,10 @@ name = "ip-addr-kind"
 version = "0.1.0"
 
 [[package]]
+name = "iterators"
+version = "0.1.0"
+
+[[package]]
 name = "match-control-flow"
 version = "0.1.0"
 

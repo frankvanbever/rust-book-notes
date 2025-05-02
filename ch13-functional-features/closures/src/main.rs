@@ -10,6 +10,12 @@ struct Inventory {
     shirts: Vec<ShirtColor>,
 }
 
+#[derive(Debug)]
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
 impl Inventory {
     fn giveaway(&self, user_preference: Option<ShirtColor>) -> ShirtColor {
         user_preference.unwrap_or_else(|| self.most_stocked())
@@ -85,4 +91,18 @@ fn main() {
     thread::spawn(move || println!("From thread: {list3:?}"))
         .join()
         .unwrap();
+
+    let mut list4 = [
+        Rectangle { width: 10, height: 1 },
+        Rectangle { width: 3, height: 5 },
+        Rectangle { width: 7, height: 12 },
+    ];
+
+    let mut num_sort_operations = 0;
+    list4.sort_by_key(|r| {
+        num_sort_operations += 1;
+        r.width
+    });
+
+    println!("{list4:#?}, sorted in {num_sort_operations} operations");
 }
