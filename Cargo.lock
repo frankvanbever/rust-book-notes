@@ -107,6 +107,10 @@ name = "matching-with-option"
 version = "0.1.0"
 
 [[package]]
+name = "memory-leak"
+version = "0.1.0"
+
+[[package]]
 name = "minigrep"
 version = "0.1.0"
 
