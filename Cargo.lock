@@ -23,6 +23,10 @@ name = "catch-all-patterns"
 version = "0.1.0"
 
 [[package]]
+name = "channels"
+version = "0.1.0"
+
+[[package]]
 name = "closures"
 version = "0.1.0"
 
