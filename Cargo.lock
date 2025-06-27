@@ -35,6 +35,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "applying-concurrency"
+version = "0.1.0"
+
+[[package]]
 name = "art"
 version = "0.1.0"
 
