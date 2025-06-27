@@ -37,6 +37,9 @@ dependencies = [
 [[package]]
 name = "applying-concurrency"
 version = "0.1.0"
+dependencies = [
+ "trpl",
+]
 
 [[package]]
 name = "art"
