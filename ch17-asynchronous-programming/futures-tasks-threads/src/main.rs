@@ -1,25 +1,44 @@
 use std::{pin::pin, time::Duration, thread};
 use trpl::{ReceiverStream, Stream, StreamExt};
 
+
 fn main() {
-    trpl::run( async {
-        let messages = get_messages().timeout(Duration::from_millis(200));
-        let intervals = get_intervals()
-            .map(|count| format!("Interval: {count}"))
-            .throttle(Duration::from_millis(100))
-            .timeout(Duration::from_secs(10));
+    let (tx, mut rx) = trpl::channel();
 
-        let merged = messages.merge(intervals).take(20);
-        let mut stream = pin!(merged);
-
-        while let Some(result) = stream.next().await {
-            match result {
-                Ok(message) => println!("{message}"),
-                Err(reason) => eprintln!("Problem: {reason:?}"),
-            }
+    thread::spawn(move || {
+        for i in 1..11 {
+            tx.send(i).unwrap();
+            thread::sleep(Duration::from_secs(1));
         }
-    })
+    });
+
+    trpl::run(async {
+        while let Some(message) = rx.recv().await {
+            println!("{message}");
+        }
+    });
+
 }
+
+// fn main() {
+//     trpl::run( async {
+//         let messages = get_messages().timeout(Duration::from_millis(200));
+//         let intervals = get_intervals()
+//             .map(|count| format!("Interval: {count}"))
+//             .throttle(Duration::from_millis(100))
+//             .timeout(Duration::from_secs(10));
+
+//         let merged = messages.merge(intervals).take(20);
+//         let mut stream = pin!(merged);
+
+//         while let Some(result) = stream.next().await {
+//             match result {
+//                 Ok(message) => println!("{message}"),
+//                 Err(reason) => eprintln!("Problem: {reason:?}"),
+//             }
+//         }
+//     })
+// }
 
 fn get_messages() -> impl Stream<Item = String> {
     let (tx, rx) = trpl::channel();
