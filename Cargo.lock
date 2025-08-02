@@ -1828,6 +1828,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "trait-objects"
+version = "0.1.0"
+
+[[package]]
 name = "traits-shared-behavior"
 version = "0.1.0"
 
