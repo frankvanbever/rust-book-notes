@@ -1,3 +1,5 @@
+mod blog;
+
 use blog::Post;
 
 fn main() {
