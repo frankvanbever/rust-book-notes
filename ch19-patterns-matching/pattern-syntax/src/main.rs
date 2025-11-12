@@ -1,5 +1,3 @@
-use core::hash;
-
 
 enum Color {
     Rgb(i32, i32, i32),
@@ -12,7 +10,6 @@ enum Message {
     Write(String),
     ChangeColor(Color),
 }
-
 
 fn main() {
 
@@ -126,4 +123,59 @@ fn main() {
     }
 
     //let ((feet, inches), Point { x, y }) = ((3, 10), Point { x: 3, y: -10 });
+
+    // Ignoring Values in a Pattern
+    foo(3, 4);
+
+    // Parts of a Value with a Nested _
+    let mut setting_value = Some(5);
+    let new_setting_value = Some(10);
+
+    match (setting_value, new_setting_value) {
+        (Some(_), Some(_)) => {
+            println!("Can't overwrite an existing customized");
+        }
+        _ => {
+            setting_value = new_setting_value;
+        }
+    }
+
+    println!("setting is {setting_value:?}");
+
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {first}, {third}, {fifth}");
+        }
+    }
+
+    //An unused variable by starting it's name with _
+    let _x = 5;
+    //let y = 10;
+
+    let s = Some(String::from("Hello!"));
+
+    if let Some(_) = s {
+       println!("found a string");
+    }
+
+    println!("{s:?}");
+
+    // Remaining Parts of a Value with ..
+    struct Point2 {
+        x: i32,
+        y: i32,
+        z: i32,
+    }
+
+    let origin = Point2 { x: 0, y: 0, z: 0 };
+
+    match origin {
+        Point2 { x, .. } => println!("x = {x}"),
+    }
+}
+
+fn foo(_: i32, y: i32) {
+    println!("This code only uses the y parameter: {y}");
 }
