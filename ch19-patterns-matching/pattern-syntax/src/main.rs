@@ -174,6 +174,66 @@ fn main() {
     match origin {
         Point2 { x, .. } => println!("x = {x}"),
     }
+
+    // .. with a tuple
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, .., last) => {
+            println!("Some numbers: {first}, {last}");
+        }
+    }
+
+    // Match Guards
+    let num = Some(4);
+
+    match num {
+        Some(x) if x % 2 == 0 => println!("The number {x} is even"),
+        Some(x) => println!("The number {x} is odd"),
+        None => (),
+    }
+
+
+    // Fixing pattern shadowing with match guards
+    let x = Some(5);
+    let y = 10;
+
+    match x {
+        Some(50) => println!("Got 50"),
+        Some(n) if n == y => println!("Matched, n = {n}"),
+        _ => println!("Default case, x = {x:?}"),
+    }
+
+    println!("at the end: x = {x:?}, y = {y}");
+
+    // Match guards with or '|' operator
+
+    let x = 4;
+    let y = false;
+
+    match x {
+        4 | 5 | 6 if y  => println!("yes"),
+        _ => println!("no"),
+    }
+
+
+    // The @ operator lets us create a variable that holds a value at the same
+    // time we're testing that value for a pattern match
+    enum Message2 {
+        Hello { id: i32 }
+    }
+
+    let msg = Message2::Hello { id: 5 };
+
+    match msg {
+        Message2::Hello { id: id @ 3..=7 } => {
+           println!("found an id in range: {id}")
+        }
+        Message2::Hello { id: 10..=12 } => {
+            println!("Found an id in another range")
+        }
+        Message2::Hello { id } => println!("Found some other id: {id}"),
+    }
 }
 
 fn foo(_: i32, y: i32) {
