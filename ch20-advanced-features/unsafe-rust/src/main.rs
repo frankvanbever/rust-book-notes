@@ -11,6 +11,14 @@ unsafe extern "C" {
 static HELLO_WORLD: &str = "Hello, world!";
 static mut COUNTER: u32 = 0;
 
+unsafe trait Foo {
+    // Methods go here
+}
+
+unsafe impl Foo for i32 {
+    // method implementations go here
+}
+
 fn main() {
 
     // Dereferencing a Raw Pointer
@@ -39,14 +47,17 @@ fn main() {
     assert_eq!(a, &mut [1, 2, 3]);
     assert_eq!(b, &mut [4, 5, 6]);
 
-    println!("Absolute value of -3 according to C: {}", abs(-3));
+    //println!("Absolute value of -3 according to C: {}", abs(-3));
+    //
+    // let valu
 
-    // Accessing or Modifygin a Mutable Static Variable
+    // Accessing or Modifying a Mutable Static Variable
     println!("value is: {HELLO_WORLD}");
 
 
     unsafe {
         // SAFETY: This is only called from a single thread in `main`.
+        // it is idiomatic to provide a co
         add_to_count(3);
         println!("COUNTER: {}", *(&raw const COUNTER));
     }
