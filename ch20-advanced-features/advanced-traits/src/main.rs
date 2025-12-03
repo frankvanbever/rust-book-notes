@@ -1,4 +1,5 @@
 use std::ops::Add;
+use std::fmt;
 
 // pub trait Iterator {
 //     type Item; // This is a placeholder
@@ -88,6 +89,27 @@ impl Animal for Dog {
     }
 }
 
+trait OutlinePrint: fmt::Display {
+    fn outline_print(&self) {
+        let output = self.to_string();
+        let len = output.len();
+
+        println!("{}", "*".repeat(len + 4));
+        println!("*{}*", " ".repeat(len + 2));
+        println!("* {output} *");
+        println!("*{}*", " ".repeat(len + 2));
+        println!("{}", "*".repeat(len + 4));
+    }
+}
+
+impl fmt::Display for Point {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        write!(f, "({}, {})", self.x, self.y)
+    }
+}
+
+impl OutlinePrint for Point {}
+
 
 fn main() {
     assert_eq!(
@@ -109,4 +131,16 @@ fn main() {
     person.fly();
 
     println!("A baby dog is called a {}", Dog::baby_name());
+
+    // Animal doesn't have a self parameter
+    //println!("A baby dog is called a {}", Animal::baby_name());
+
+    // So the path needs to be fully qualified
+    println!("A baby dog is called a {}", <Dog as Animal>::baby_name());
+
+    // Fully qualified syntax is
+    //     <Type as Trait>::function(receiver_if_method, next_arg, ...);
+
+    let printpoint = Point { x: 1, y: 2 };
+    printpoint.outline_print();
 }
